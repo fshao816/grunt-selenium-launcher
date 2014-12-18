@@ -15,7 +15,8 @@ module.exports = function(grunt){
 
 	grunt.registerTask('selenium-launch', 'Start a selenium remote.', function(){
 		done = this.async();
-		seleniumLauncher(function(err, sel){
+		var options = this.options({});
+		seleniumLauncher(options, function(err, sel){
 			if (err) {
 				// semi-auto test via `grunt testInduceFailure`
 				grunt.log.error('There was a problem launching selenium.');
